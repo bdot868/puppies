@@ -10,7 +10,12 @@ const
     console.log(err || "Connected to mongo!")
   })
 
+app.use(morgan('dev'))
+app.use(bodyParser.json())
 
+app.get('/', (req,res) => {
+  res.json({message: "Who let the dogs out!"})
+})
 
 
 //connecting the server
