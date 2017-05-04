@@ -14,20 +14,13 @@ const
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
+app.use('/', require('./routes/puppies.js'))
 
 app.get('/', (req,res) => {
   res.json({message: "Who let the dogs out!"})
 })
 
-app.get('/puppies', puppiesCtrl.index ) // Finds all the puppies in the database
-app.get('/puppies/:id', puppiesCtrl.show) // Finds a single puppy using its ID (req.params.id)
-app.patch('/puppies/:id', puppiesCtrl.update) // Finds a single puppy using its ID (req.params.id), updates the values (req.body) and returns the new updated puppy (new:{true})
-app.post('/puppies', puppiesCtrl.create) //CREATE puppies
-app.delete('/puppies/:id', puppiesCtrl.delete) //DELETE a puppy
 
-
-
-app.use('/puppies', require('./routes/puppies.js'))
 //connecting the server
   app.listen(3000, (err) => {
     console.log(err || "Server running on 3000.")
