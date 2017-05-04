@@ -5,6 +5,7 @@ const
   morgan = require('morgan'),
   mongoose = require('mongoose'),
   Puppy = require('./models/Puppy.js')
+  puppiesCtrl = require('./controllers/puppies.js')
 
 //connecting to mongoose: database name: doghaus
   mongoose.connect('mongodb://localhost/doghaus', (err) => {
@@ -19,9 +20,8 @@ app.get('/', (req,res) => {
   res.json({message: "Who let the dogs out!"})
 })
 
-})
-//connecting the server
 
+//connecting the server
   app.listen(3000, (err) => {
     console.log(err || "Server running on 3000.")
   })
