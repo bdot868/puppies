@@ -26,14 +26,14 @@ app.get('/puppies', (req,res) => {
 })
 // Finds a single puppy using its ID (req.params.id)
 app.get('/puppies/:id',(req,res) =>{
-  Puppy.findById(req.params.id, (err,pup) =>{
+  Puppy.findById(req.params.id, (err,pup) => {
     res.json(pup)
   })
 })
 // Finds a single puppy using its ID (req.params.id), updates the values (req.body)
 // and returns the new updated puppy (new:{true})
 app.patch('/puppies/:id', (req,res) =>{
-  Puppy.findByIDAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPup)=>{
+  Puppy.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPup)=>{
     res.json({sucess:true, puppy: updatedPup})
   })
 })
