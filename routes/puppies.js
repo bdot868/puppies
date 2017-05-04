@@ -10,4 +10,4 @@ puppyRouter.route('/puppies')
 puppyRouter.route('/puppies/:id')
   .get(puppyCtrl.show) //show a single puppy
   .patch(puppyCtrl.update) //update a puppy
-  .delete(puppyCtrl.destroy) //delete a puppy 
+  .delete(puppyCtrl.delete) //delete a puppy 
